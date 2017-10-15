@@ -48,10 +48,13 @@ Route::group(['prefix'=>'admin','middleware' => 'admin'], function() {
         Route::get('xoa/{id}', 'TinTucController@getDelete');
     });
 
-    Route::group(['prefix'=>'user'], function(){
+    Route::group(['prefix'=>'users'], function(){
         Route::get('danhsach','UserController@getList');
         Route::get('them', 'UserController@getAdd');
+        Route::post('them', 'UserController@postAdd');
         Route::get('sua', 'UserController@getEdit');
+        Route::post('sua', 'UserController@postEdit');
+        Route::get('xoa', 'UserController@getDelete');
     });
 
     Route::group(['prefix'=>'ajax'], function(){
