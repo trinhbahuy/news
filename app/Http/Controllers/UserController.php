@@ -42,7 +42,32 @@ class UserController extends Controller
         return view('admin/user/them');
     }
 
-    public function getEdit(){
-        return view('admin/user/sua');
+    public function postAdd(Request $request){
+        $user = new User;
+        $user->name = $request['Name'];
+        $user->email = $request['Email'];
+        $user->level = $request['Level'];
+        $user->password = bcrypt($request['Password']);
+        $user->save();
+        return redirect('admin/users/danhsach');
+    }
+    public function getEdit($id){
+        $user = User::find($id);
+        return view('admin/user/sua',['user'=>$user]);
+    }
+    public function postEdit($id, Request $request){
+        $this->validate($request, [
+                                    'Name'=>'required',
+                                    'Email'=>'required',
+                                  ],[
+                                      'Name.required' => 'Chưa nhập tên',
+                                      'Email.required' => 'Chưa nhập Email'
+                                    ]);
+        $user = User::find($id);
+        $user->name = $request['Name'];
+        $user->email = $request['Email'];
+        $user->level = $request['Level'];
+        $user->save();
+        return redirect('admin/users/sua/'. $id);
     }
 }

@@ -16,15 +16,19 @@
                     {{ csrf_field() }}
                       <div class="form-group">
                           <label>Tên</label>
-                          <input class="form-control" name="txtCateName" placeholder="Nhập tên người dùng" />
+                          <input class="form-control" name="Name" placeholder="Nhập tên người dùng" />
                       </div>
                       <div class="form-group">
                           <label>Email</label>
-                          <input class="form-control" name="txtOrder" placeholder="Nhập email người dùng" />
+                          <input class="form-control" name="Email" placeholder="Nhập email người dùng" />
+                      </div>
+                      <div class="form-group">
+                          <label>Password</label>
+                          <input class="form-control" type="password" name="Password" placeholder="Nhập mật khẩu người dùng" />
                       </div>
                       <div class="form-group">
                           <label>Quyền</label>
-                          <select class="form-control">
+                          <select class="form-control" name="Level">
                               <option value="0">Thành viên</option>
                               <option value="2">Moderator</option>
                               <option value="1">Admin</option>

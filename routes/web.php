@@ -52,9 +52,9 @@ Route::group(['prefix'=>'admin','middleware' => 'admin'], function() {
         Route::get('danhsach','UserController@getList');
         Route::get('them', 'UserController@getAdd');
         Route::post('them', 'UserController@postAdd');
-        Route::get('sua', 'UserController@getEdit');
-        Route::post('sua', 'UserController@postEdit');
-        Route::get('xoa', 'UserController@getDelete');
+        Route::get('sua/{id}', 'UserController@getEdit');
+        Route::post('sua/{id}', 'UserController@postEdit');
+        Route::get('xoa/{id}', 'UserController@getDelete');
     });
 
     Route::group(['prefix'=>'ajax'], function(){

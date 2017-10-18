@@ -24,7 +24,7 @@
                         <div class="col-md-9">
                             <h3>{{ $list->TieuDe }}</h3>
                             <p>{!! $list->TomTat !!}</p>
-                            <a class="btn btn-primary" href="detail.html">View Project <span class="glyphicon glyphicon-chevron-right"></span></a>
+                            <a class="btn btn-primary" href="tintuc/{{ $list->id }}">Xem chi tiết <span class="glyphicon glyphicon-chevron-right"></span></a>
                         </div>
                         <div class="break"></div>
                     </div>

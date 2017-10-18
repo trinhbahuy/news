@@ -12,22 +12,22 @@
               </div>
               <!-- /.col-lg-12 -->
               <div class="col-lg-7" style="padding-bottom:120px">
-                  <form action="admin/users/sua" method="POST">
+                  <form action="admin/users/sua/{{ $user->id }}" method="POST">
                     {{ csrf_field() }}
                       <div class="form-group">
                           <label>Tên</label>
-                          <input class="form-control" name="txtCateName" placeholder="Nhập tên người dùng" />
+                          <input class="form-control" name="Name" placeholder="Nhập tên người dùng" value="{{ $user->name }}"/>
                       </div>
                       <div class="form-group">
                           <label>/Email</label>
-                          <input class="form-control" name="txtOrder" placeholder="Nhập email người dùng" />
+                          <input class="form-control" name="Email" placeholder="Nhập email người dùng" value="{{ $user->email }}"/>
                       </div>
                       <div class="form-group">
                           <label>Quyền</label>
-                          <select class="form-control">
-                              <option value="0">Thành viên</option>
-                              <option value="2">Moderator</option>
-                              <option value="1">Admin</option>
+                          <select class="form-control" name="Level">
+                              <option @if($user->level == 0) {{ "selected" }} @endif value="0">Thành viên</option>
+                              <option @if($user->level == 2) {{ "selected" }} @endif value="2">Moderator</option>
+                              <option @if($user->level == 1) {{ "selected" }} @endif value="1">Admin</option>
                           </select>
                       </div>
                       <button type="submit" class="btn btn-default">Edit</button>

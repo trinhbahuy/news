@@ -84,9 +84,9 @@
                                 </a>
                             </div>
                             <div class="col-md-7">
-                                <a href="#"><b>Project Five</b></a>
+                                <a href="#"><b>{{ $lienquan->TieuDe }}</b></a>
                             </div>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+                            <p>{{ $lienquan->TomTat }}</p>
                             <div class="break"></div>
                         </div>
                         <!-- end item -->
@@ -107,9 +107,9 @@
                                 </a>
                             </div>
                             <div class="col-md-7">
-                                <a href="#"><b>Project Five</b></a>
+                                <a href="#"><b>{{ $noibat->TieuDe }}</b></a>
                             </div>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+                            <p>{{ $noibat->TomTat }}</p>
                             <div class="break"></div>
                         </div>
                         <!-- end item -->
@@ -147,7 +147,7 @@
                 url: 'comment/'+id,
                 data: {nd: nd, _token:'{{ csrf_token() }}'}
             }).done(function(){
-          
+
             });
           });
         });
