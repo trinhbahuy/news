@@ -12,7 +12,7 @@
               </div>
               <!-- /.col-lg-12 -->
               <div class="col-lg-7" style="padding-bottom:120px">
-                  <form action="admin/users/sua/{{ $user->id }}" method="POST">
+                  <form action="sua/{{ $user->id }}" method="POST">
                     {{ csrf_field() }}
                       <div class="form-group">
                           <label>Tên</label>
@@ -23,12 +23,20 @@
                           <input class="form-control" name="Email" placeholder="Nhập email người dùng" value="{{ $user->email }}" readonly/>
                       </div>
                       <div class="form-group">
-                          <label>Quyền</label>
-                          <select class="form-control" name="Level">
-                              <option @if($user->level == 0) {{ "selected" }} @endif value="0">Thành viên</option>
-                              <option @if($user->level == 2) {{ "selected" }} @endif value="2">Moderator</option>
-                              <option @if($user->level == 1) {{ "selected" }} @endif value="1">Admin</option>
+                          <label>Giới tính</label>
+                          <select class="form-control" name="Gender">
+                              <option @if($user->gender == 0) {{ "selected" }} @endif value="0">Nữ</option>
+                              <option @if($user->gender == 1) {{ "selected" }} @endif value="1">Nam</option>
+                              <option @if($user->gender == 2) {{ "selected" }} @endif value="2">Không xác định</option>
                           </select>
+                      </div>
+                      <div class="form-group">
+                          <label>Ngày sinh</label>
+                          <input class="form-control" name="Date" placeholder="Nhập ngày sinh" value="{{ $user->date }}" />
+                      </div>
+                      <div class="form-group">
+                          <label>Số diện thoại</label>
+                          <input class="form-control" name="Phone" placeholder="Nhập số điện thoại" value="{{ $user->phone }}" />
                       </div>
                       <button type="submit" class="btn btn-default">Edit</button>
                       <button type="reset" class="btn btn-default">Reset</button>

@@ -1,6 +1,6 @@
 <html>
 <head>
- <link href="https://cdn.jsdelivr.net/foundation/5.0.2/css/foundation.css" rel="stylesheet">
+ <link href="css/foundation.css" rel="stylesheet">
 <link href="https://netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet">
 <link href="css/forum.css" rel="stylesheet">
 </head>

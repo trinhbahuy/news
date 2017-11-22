@@ -17,6 +17,10 @@ Route::get('/', function () {
 Route::get('login', 'UserController@getLogin');
 Route::post('login', 'UserController@postLogin');
 Route::get('logout', 'UserController@logout' );
+Route::get('sua/{id}', 'UserController@getEdit');
+Route::post('sua/{id}', 'UserController@postEdit');
+Route::get('signup', 'UserController@getSignUp');
+Route::post('signup', 'UserController@postSignUp');
 
 Route::group(['prefix'=>'admin','middleware' => 'admin'], function() {
 
@@ -49,12 +53,12 @@ Route::group(['prefix'=>'admin','middleware' => 'admin'], function() {
     });
 
     Route::group(['prefix'=>'users'], function(){
-        Route::get('danhsach','UserController@getList');
-        Route::get('them', 'UserController@getAdd');
-        Route::post('them', 'UserController@postAdd');
-        Route::get('sua/{id}', 'UserController@getEdit');
-        Route::post('sua/{id}', 'UserController@postEdit');
-        Route::get('xoa/{id}', 'UserController@getDelete');
+        Route::get('danhsach','ManageUserController@getList');
+        Route::get('them', 'ManageUserController@getAdd');
+        Route::post('them', 'ManageUserController@postAdd');
+        Route::get('sua/{id}', 'ManageUserController@getEdit');
+        Route::post('sua/{id}', 'ManageUserController@postEdit');
+        Route::get('xoa/{id}', 'ManageUserController@getDelete');
     });
 
     Route::group(['prefix'=>'ajax'], function(){
@@ -65,7 +69,7 @@ Route::group(['prefix'=>'admin','middleware' => 'admin'], function() {
 Route::get('trangchu','PagesController@trangchu');
 Route::get('loaitin/{id}/{tenkhongdau}','PagesController@loaitin');
 Route::get('tintuc/{id}','PagesController@tintuc');
-Route::get('comment/{id}','PagesController@getComment');
-Route::post('comment/{id}','PagesController@postComment');
+Route::get('comment/{id}','CommentController@getComment');
+Route::post('comment/{id}','CommentController@postComment');
 
 Route::get('forum','ForumController@forum');

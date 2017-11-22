@@ -32,28 +32,10 @@ class UserController extends Controller
         Auth::logout();
         return redirect('trangchu');
     }
-  // End Auth
-    public function getList(){
-        $users = User::all();
-        return view('admin/user/danhsach',['users'=>$users]);
-    }
 
-    public function getAdd(){
-        return view('admin/user/them');
-    }
-
-    public function postAdd(Request $request){
-        $user = new User;
-        $user->name = $request['Name'];
-        $user->email = $request['Email'];
-        $user->level = $request['Level'];
-        $user->password = bcrypt($request['Password']);
-        $user->save();
-        return redirect('admin/users/danhsach');
-    }
     public function getEdit($id){
         $user = User::find($id);
-        return view('admin/user/sua',['user'=>$user]);
+        return view('pages/sua',['user'=>$user]);
     }
     public function postEdit($id, Request $request){
         $this->validate($request, [
@@ -65,9 +47,52 @@ class UserController extends Controller
                                     ]);
         $user = User::find($id);
         $user->name = $request['Name'];
-        $user->email = $request['Email'];
-        $user->level = $request['Level'];
+        $user->gender = $request['Gender'];
+        $user->date = $request['Date'];
+        $user->phone = $request['Phone'];
         $user->save();
-        return redirect('admin/users/sua/'. $id);
+        return redirect('sua/'. $id);
     }
+
+    public function getSignUp()
+    {
+        return view('signup');
+    }
+
+    public function postSignUp(Request $request)
+    {
+        $this->validate($request, [
+                                    'name' => 'required|alpha',
+                                    'email' => 'required|unique:users',
+                                    'gender' => 'required',
+                                    'date' => 'required',
+                                    'phone' => 'required|numeric|unique:users',
+                                    'password' => 'required',
+                                    'passwordAgain' => 'required|same:password'
+                                  ],[
+                                        'name.required' => "chưa nhập tên",
+                                        'name.alpha' => "Tên không được chứa các kí tự đặc biệt hoặc số",
+                                        'email.required' => "chưa nhập email",
+                                        'email.unique' => "email đã tồn tại",
+                                        'gender.required' => "chưa chọn giới tính",
+                                        'date.required' => "chưa nhập ngày sinh",
+                                        'phone.required' => "chưa nhập số điện thoại",
+                                        'phone.numeric' => "chỉ nhập số 0-9",
+                                        'phone.unique' => "số điện thoại đã tồn tại",
+                                        'password.required' => "chưa nhập mật khẩu",
+                                        'passwordAgain.required' => "hãy nhập lại mật khẩu",
+                                        'passwordAgain.same' => "mật khẩu nhập lại không chính xác"
+                                    ]);
+        $user = new User;
+        $user->name = $request['name'];
+        $user->email = $request['email'];
+        $user->gender = $request['gender'];
+        $user->date = $request['date'];
+        $user->phone = $request['phone'];
+        $user->password = bcrypt($request['password']);
+        $user->save();
+        echo "ok";
+    }
+  // End Auth
+
 }

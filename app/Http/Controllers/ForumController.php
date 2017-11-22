@@ -7,8 +7,7 @@ use Illuminate\Http\Request;
 class ForumController extends Controller
 {
     public function forum(){
-        return view('forum.layout.post');
+        return view('forum.layout.reply');
     }
 
-    //ádsdfsfdsdfsfsdf
 }

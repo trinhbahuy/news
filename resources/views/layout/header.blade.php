@@ -33,15 +33,16 @@
       </form>
 
       <ul class="nav navbar-nav pull-right">
+            @if(!Auth::check())
                 <li>
                     <a href="#">Đăng ký</a>
                 </li>
                 <li>
                     <a href="login">Đăng nhập</a>
                 </li>
-                @if(Auth::check())
+             @else
                 <li>
-                  <a>
+                  <a href='sua/{{ Auth::user()->id }}'>
                     <span class ="glyphicon glyphicon-user"></span>
                     {{ Auth::user()->name }}
                   </a>
