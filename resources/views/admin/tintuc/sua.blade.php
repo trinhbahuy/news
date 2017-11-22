@@ -6,8 +6,8 @@
       <div class="container-fluid">
           <div class="row">
               <div class="col-lg-12">
-                  <h1 class="page-header">Category
-                      <small>Add</small>
+                  <h1 class="page-header">Tin tức
+                      <small>Edit</small>
                   </h1>
               </div>
               <!-- /.col-lg-12 -->
@@ -66,7 +66,7 @@
                               <input name="NoiBat" value="1" @if ($tintuc->NoiBat==1) {{ "checked "}} @endif type="radio"> Có
                           </label>
                       </div>
-                      <button type="submit" class="btn btn-default">Thêm</button>
+                      <button type="submit" class="btn btn-default">Edit</button>
                       <button type="reset" class="btn btn-default">Reset</button>
                   <form>
               </div>

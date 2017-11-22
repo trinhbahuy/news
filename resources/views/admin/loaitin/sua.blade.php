@@ -6,7 +6,7 @@
       <div class="container-fluid">
           <div class="row">
               <div class="col-lg-12">
-                  <h1 class="page-header">Category
+                  <h1 class="page-header">Loại tin
                       <small>Edit</small>
                   </h1>
               </div>
@@ -43,7 +43,7 @@
                           <label>Category Name</label>
                           <input class="form-control" name="Name" value="{{ $loaitin->Ten }}" />
                       </div>
-                      <button type="submit" class="btn btn-default">Category Edit</button>
+                      <button type="submit" class="btn btn-default">Edit</button>
                       <button type="reset" class="btn btn-default">Reset</button>
                   <form>
               </div>

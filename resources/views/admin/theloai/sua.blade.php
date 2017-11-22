@@ -6,7 +6,7 @@
       <div class="container-fluid">
           <div class="row">
               <div class="col-lg-12">
-                  <h1 class="page-header">{{ $theloai->Ten }}
+                  <h1 class="page-header">Thể loại
                       <small>Edit</small>
                   </h1>
               </div>
@@ -31,7 +31,7 @@
                           <label>Tên thể loại</label>
                           <input class="form-control" name="Name" placeholder="Nhập tên thể loại mới" value="{{ $theloai->Ten }}" />
                       </div>
-                      <button type="submit" class="btn btn-default">Category Edit</button>
+                      <button type="submit" class="btn btn-default">Edit</button>
                       <button type="reset" class="btn btn-default">Reset</button>
                   <form>
               </div>

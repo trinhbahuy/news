@@ -91,7 +91,8 @@ class UserController extends Controller
         $user->phone = $request['phone'];
         $user->password = bcrypt($request['password']);
         $user->save();
-        echo "ok";
+        Auth::attempt(['email' => $request->email, 'password' => $request->password]);
+        return redirect('admin/theloai/danhsach');
     }
   // End Auth
 

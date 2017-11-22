@@ -12,6 +12,9 @@
               </div>
               <!-- /.col-lg-12 -->
               <div class="col-lg-7" style="padding-bottom:120px">
+                @foreach ($errors->all() as $error)
+                   <div class="alert alert-danger"> {{ $error }}</div>
+                @endforeach
                   <form action="admin/tintuc/them" method="POST" enctype="multipart/form-data">
                       <input type="hidden" name="_token" value="{{ csrf_token() }}">
                       <div class="form-group">

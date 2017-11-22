@@ -35,7 +35,7 @@
       <ul class="nav navbar-nav pull-right">
             @if(!Auth::check())
                 <li>
-                    <a href="#">Đăng ký</a>
+                    <a href="signup">Đăng ký</a>
                 </li>
                 <li>
                     <a href="login">Đăng nhập</a>
