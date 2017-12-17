@@ -71,5 +71,6 @@ Route::get('loaitin/{id}/{tenkhongdau}','PagesController@loaitin');
 Route::get('tintuc/{id}','PagesController@tintuc');
 Route::get('comment/{id}','CommentController@getComment');
 Route::post('comment/{id}','CommentController@postComment');
+Route::get('search', 'PagesController@search');
 
 Route::get('forum','ForumController@forum');

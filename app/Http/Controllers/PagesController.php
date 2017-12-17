@@ -37,6 +37,10 @@ class PagesController extends Controller
         return view('pages.tintuc',['tintuc' => $tintuc, 'tinnoibat' => $tinnoibat, 'tinlienquan' => $tinlienquan]);
     }
 
-
+    public function search(Request $request){
+        $key = $request['key'];
+        $result = TinTuc::where('TieuDe', 'like', "%$key%")->orWhere('TomTat', 'like', "%$key%")->paginate(5);
+        return view('pages.search',['result' => $result]);
+    }
 
 }
