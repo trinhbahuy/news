@@ -12,6 +12,12 @@
               </div>
               <!-- /.col-lg-12 -->
               <div class="col-lg-7" style="padding-bottom:120px">
+              
+                  @foreach($errors->all() as $error)
+                  <div class="alert alert-danger">
+                      {{ $error }}
+                   </div>
+                  @endforeach
                   <form action="admin/users/them" method="POST">
                     {{ csrf_field() }}
                       <div class="form-group">

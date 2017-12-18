@@ -17,6 +17,21 @@ class ManageUserController extends Controller
   }
 
   public function postAdd(Request $request){
+      $this->validate($request, 
+                        [
+                        'Name' => 'required|alpha',
+                        'Email' => 'required|email',
+                        'Level' => 'required',
+                        'Password' => 'required'
+                        ],
+                        [
+                        'Name.required' => 'Vui lòng nhập tên',
+                        'Name.alpha' => 'Tên không chứa số và kí tự đặc biệt',
+                        'Email.required' => 'Vui lòng nhập email',
+                        'Email.email' => 'Địa chỉ email không đúng định dạng',
+                        'Level.required' => 'chưa chọn quyền',
+                        'Password.required' => 'chưa nhập password'
+                        ]);
       $user = new User;
       $user->name = $request['Name'];
       $user->email = $request['Email'];
